@@ -1,0 +1,76 @@
+<!-- Formulario para añadir un producto al carrito -->
+<div class="add-to-cart">
+  <h2>Add Product to Cart</h2>
+  <form method="post" action="/add-to-cart">
+    <label for="product_id">Product ID:</label>
+    <input type="text" id="product_id" name="product_id" required />
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1" required />
+
+    <input type="submit" value="Add to Cart" />
+  </form>
+</div>
+
+<!-- Mostrar productos en el carrito -->
+<div class="cart-view">
+  <h2>Your Cart</h2>
+  <table cellspacing="0" class="table-responsive shop_table cart">
+    <thead>
+      <tr>
+        <th class="product-remove">&nbsp;</th>
+        <th class="product-thumbnail">&nbsp;</th>
+        <th class="product-name">Product</th>
+        <th class="product-price">Price</th>
+        <th class="product-quantity">Quantity</th>
+        <th class="product-subtotal">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Suponiendo que tienes una lista de productos en el carrito -->
+      <tr class="cart_item">
+        <td class="product-remove">
+          <a href="/remove-from-cart/PRODUCT_ID" class="remove" title="Remove this item">×</a>
+        </td>
+        <td class="product-thumbnail">
+          <img width="145" height="145" alt="Product Image" class="shop_thumbnail" src="PRODUCT_IMAGE_URL" />
+        </td>
+        <td class="product-name">
+          <a href="/product/PRODUCT_ID">PRODUCT_NAME</a>
+        </td>
+        <td class="product-price">
+          <span class="amount">PRODUCT_PRICE</span>
+        </td>
+        <td class="product-quantity">
+          <input type="number" size="4" class="input-text qty text" title="Qty" value="PRODUCT_QUANTITY" min="1" />
+        </td>
+        <td class="product-subtotal">
+          <span class="amount">PRODUCT_TOTAL</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Formulario para actualizar la cantidad del producto -->
+<div class="update-quantity">
+  <h2>Update Product Quantity</h2>
+  <form method="post" action="/update-quantity">
+    <label for="cart_item_id">Cart Item ID:</label>
+    <input type="text" id="cart_item_id" name="cart_item_id" required />
+
+    <label for="new_quantity">New Quantity:</label>
+    <input type="number" id="new_quantity" name="new_quantity" min="1" required />
+
+    <input type="submit" value="Update Quantity" />
+  </form>
+</div>
+<!-- Formulario para eliminar un producto del carrito -->
+<div class="remove-from-cart">
+  <h2>Remove Product from Cart</h2>
+  <form method="post" action="/remove-from-cart">
+    <label for="cart_item_id">Cart Item ID:</label>
+    <input type="text" id="cart_item_id" name="cart_item_id" required />
+
+    <input type="submit" value="Remove from Cart" />
+  </form>
+</div>
